@@ -1,0 +1,8 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] AutoPlantCultivation\Source\bin\Debug\Source.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] AutoPlantCultivation\Source\bin\Debug\Source.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] AutoPlantCultivation\Source\obj\Debug\Source.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] AutoPlantCultivation\Source\obj\Debug\Source.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] AutoPlantCultivation\Source\obj\Debug\Source.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] No Rogue Robots Please\Source\obj\Debug\Source.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] No Rogue Robots Please\Assemblies\NoRogueRobots.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] No Rogue Robots Please\Source\obj\Debug\NoRogueRobots.dll
