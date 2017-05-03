@@ -8,7 +8,6 @@ using System.Reflection.Emit;
 using System.Collections.Generic;
 using System.Linq;
 */
-
 namespace NoRogueRobots
 {
     [StaticConstructorOnStartup, HarmonyPatch]
@@ -16,12 +15,12 @@ namespace NoRogueRobots
     {
         static MethodInfo TargetMethod()
         {
-            return AccessTools.Method(AccessTools.TypeByName("Building_CrashedShipPart"), "<TrySpawnMechanoids>m__3D9");
+            return AccessTools.Method(AccessTools.TypeByName("Building_CrashedShipPart"), "<TrySpawnMechanoids>m__4A1");
         }
         static Patches()
         {
             HarmonyInstance.Create("com.spdskatr.NoRogueRobots.patches").PatchAll(Assembly.GetExecutingAssembly());
-            Log.Message("SS No Rogue Robots initialized. Patched:\nBuilding_CrashedShipPart.<TrySpawnMechanoids>m__3D9 (Non-destructive postfix)\nSymbolResolver_RandomMechanoidGroup.<Resolve>m__219 (Non-destructive postfix)\n\n");
+            Log.Message("SS No Rogue Robots initialized. Patched:\nBuilding_CrashedShipPart.<TrySpawnMechanoids>m__4A1 (Non-destructive postfix)\nSymbolResolver_RandomMechanoidGroup.<Resolve>m__270 (Non-destructive postfix)\n\n");
         }
         static void Postfix(PawnKindDef def, ref bool __result)
         {
@@ -51,7 +50,7 @@ namespace NoRogueRobots
             return def.defaultFactionType != Faction.OfMechanoids.def;
         }
     }
-    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__219")]
+    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__270")]
     public static class Patches_2
     {
         static void Postfix(PawnKindDef kind, ref bool __result)
