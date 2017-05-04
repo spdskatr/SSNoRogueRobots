@@ -10,13 +10,9 @@ using System.Linq;
 */
 namespace NoRogueRobots
 {
-    [StaticConstructorOnStartup, HarmonyPatch]
+    [StaticConstructorOnStartup, HarmonyPatch(typeof(Building_CrashedShipPart), "<TrySpawnMechanoids>m__49F")]
     public static class Patches
     {
-        static MethodInfo TargetMethod()
-        {
-            return AccessTools.Method(AccessTools.TypeByName("Building_CrashedShipPart"), "<TrySpawnMechanoids>m__4A1");
-        }
         static Patches()
         {
             HarmonyInstance.Create("com.spdskatr.NoRogueRobots.patches").PatchAll(Assembly.GetExecutingAssembly());
@@ -50,7 +46,7 @@ namespace NoRogueRobots
             return def.defaultFactionType != Faction.OfMechanoids.def;
         }
     }
-    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__270")]
+    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__26E")]
     public static class Patches_2
     {
         static void Postfix(PawnKindDef kind, ref bool __result)
