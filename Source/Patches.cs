@@ -46,7 +46,7 @@ namespace NoRogueRobots
             return def.defaultFactionType != Faction.OfMechanoids.def;
         }
     }
-    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__26C")]
+    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__26D")]
     public static class Patches_2
     {
         static void Postfix(PawnKindDef kind, ref bool __result)
