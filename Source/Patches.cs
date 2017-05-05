@@ -10,7 +10,7 @@ using System.Linq;
 */
 namespace NoRogueRobots
 {
-    [StaticConstructorOnStartup, HarmonyPatch(typeof(Building_CrashedShipPart), "<TrySpawnMechanoids>m__49F")]
+    [StaticConstructorOnStartup, HarmonyPatch(typeof(Building_CrashedShipPart), "<TrySpawnMechanoids>m__49D")]
     public static class Patches
     {
         static Patches()
@@ -46,7 +46,7 @@ namespace NoRogueRobots
             return def.defaultFactionType != Faction.OfMechanoids.def;
         }
     }
-    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__26E")]
+    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__26C")]
     public static class Patches_2
     {
         static void Postfix(PawnKindDef kind, ref bool __result)
