@@ -10,13 +10,13 @@ using System.Linq;
 */
 namespace NoRogueRobots
 {
-    [StaticConstructorOnStartup, HarmonyPatch(typeof(Building_CrashedShipPart), "<TrySpawnMechanoids>m__49D")]
+    [StaticConstructorOnStartup, HarmonyPatch(typeof(Building_CrashedShipPart), "<TrySpawnMechanoids>m__4A4")]
     public static class Patches
     {
         static Patches()
         {
             HarmonyInstance.Create("com.spdskatr.NoRogueRobots.patches").PatchAll(Assembly.GetExecutingAssembly());
-            Log.Message("SS No Rogue Robots initialized. Patched:\nBuilding_CrashedShipPart.<TrySpawnMechanoids>m__4A1 (Non-destructive postfix)\nSymbolResolver_RandomMechanoidGroup.<Resolve>m__270 (Non-destructive postfix)\n\n");
+            Log.Message("SS No Rogue Robots initialized. Patched:\nBuilding_CrashedShipPart.<TrySpawnMechanoids>m__4A4 (Non-destructive postfix)\nSymbolResolver_RandomMechanoidGroup.<Resolve>m__272 (Non-destructive postfix)\n\n");
         }
         static void Postfix(PawnKindDef def, ref bool __result)
         {
@@ -46,7 +46,7 @@ namespace NoRogueRobots
             return def.defaultFactionType != Faction.OfMechanoids.def;
         }
     }
-    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__26D")]
+    [HarmonyPatch(typeof(SymbolResolver_RandomMechanoidGroup), "<Resolve>m__272")]
     public static class Patches_2
     {
         static void Postfix(PawnKindDef kind, ref bool __result)
