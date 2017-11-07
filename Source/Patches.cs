@@ -18,12 +18,10 @@ namespace NoRogueRobots
         public const BindingFlags compilerGeneratedBindingFlags = BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance;
         static Patches()
         {
+            Log.Message("SS No Rogue Robots :: Starting patches...");
             HarmonyInstance.Create("com.spdskatr.NoRogueRobots.patches").PatchAll(Assembly.GetExecutingAssembly());
-            Log.Message("SS No Rogue Robots initialized. Patched:\nBuilding_CrashedShipPart.<TrySpawnMechanoids>m__*** (Non-destructive postfix, uses method get_IsMechanoid)\nSymbolResolver_RandomMechanoidGroup.<Resolve>m__*** (Non-destructive postfix, uses method get_IsMechanoid)\n\n");
         }
-        /// <summary>
-        /// Thanks to erdelf for that quick tip about getting compiler generated methods cross platform and build.
-        /// </summary>
+        // Thanks to erdelf for that quick tip about compiler generated methods
         static MethodInfo TargetMethod()
         {
             var methods = typeof(Building_CrashedShipPart).GetMethods(compilerGeneratedBindingFlags);
@@ -31,10 +29,11 @@ namespace NoRogueRobots
             {
                 if (method.HasAttribute<CompilerGeneratedAttribute>() && method.GetParameters()[0].ParameterType == typeof(PawnKindDef))
                 {
+                    Log.Message($"SS No Rogue Robots :: (PATCH 1) Patched compiler generated method {method.FullName}");
                     return method;
                 }
             }
-            throw new Exception("Method not found for SS No Rogue Robots typeof(Building_CrashedShipPart)");
+            throw new Exception("SS No Rogue Robots :: Method not found for patch 1 in typeof(Building_CrashedShipPart)");
         }
         static void Postfix(PawnKindDef def, ref bool __result)
         {
@@ -74,10 +73,11 @@ namespace NoRogueRobots
             {
                 if (method.ReturnType == typeof(bool) && method.HasAttribute<CompilerGeneratedAttribute>())
                 {
+                    Log.Message($"SS No Rogue Robots :: (PATCH 2) Patched compiler generated method {method.FullName}");
                     return method;
                 }
             }
-            throw new Exception("Method not found for SS No Rogue Robots typeof(SymbolResolver_RandomMechanoidGroup)");
+            throw new Exception("SS No Rogue Robots :: Method not found for patch 2 in typeof(SymbolResolver_RandomMechanoidGroup)");
         }
         static void Postfix(PawnKindDef kind, ref bool __result)
         {
