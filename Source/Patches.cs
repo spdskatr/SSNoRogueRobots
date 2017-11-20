@@ -24,12 +24,12 @@ namespace NoRogueRobots
         // Thanks to erdelf for that quick tip about compiler generated methods
         static MethodInfo TargetMethod()
         {
-            var methods = typeof(Building_CrashedShipPart).GetMethods(compilerGeneratedBindingFlags);
+            var methods = typeof(CompSpawnerMechanoidsOnDamaged).GetMethods(compilerGeneratedBindingFlags);
             foreach (var method in methods)
             {
                 if (method.HasAttribute<CompilerGeneratedAttribute>() && method.GetParameters()[0].ParameterType == typeof(PawnKindDef))
                 {
-                    Log.Message($"SS No Rogue Robots :: (PATCH 1) Patched compiler generated method {method.FullName}");
+                    Log.Message($"SS No Rogue Robots :: (PATCH 1) Patched compiler generated method {method.DeclaringType}.{method.Name}");
                     return method;
                 }
             }
@@ -73,7 +73,7 @@ namespace NoRogueRobots
             {
                 if (method.ReturnType == typeof(bool) && method.HasAttribute<CompilerGeneratedAttribute>())
                 {
-                    Log.Message($"SS No Rogue Robots :: (PATCH 2) Patched compiler generated method {method.FullName}");
+                    Log.Message($"SS No Rogue Robots :: (PATCH 2) Patched compiler generated method {method.DeclaringType}.{method.Name}");
                     return method;
                 }
             }
