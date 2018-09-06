@@ -1,2 +1,0 @@
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] AutoPlantCultivation\Assemblies\Source.dll
-C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] AutoPlantCultivation\Source\obj\Release\Source.dll
